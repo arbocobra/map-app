@@ -1,8 +1,8 @@
 * {position: relative;}
 #root {
-  max-width: 1280px;
+  width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 30px;
   text-align: center;
   position: relative;
   /* width: 100%;
@@ -11,17 +11,28 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+}
+.header-container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 30px;
+  box-sizing: border-box;
+}
+.header {
+  border: black 2px solid;
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  position: relative;
-  /* width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  padding-right: 17px;
-  box-sizing: content-box; */
+  font-size: 40px;
+  flex:1;
+  color: black;
 }
-
 .box-container {
   display: flex;
   flex-flow: column nowrap;
@@ -53,3 +64,86 @@
   height: 10px;
   background-color: #ff0088;
 } */
+
+.map-container-outer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 3000vh;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.map-container-inner {
+  position:-webkit-sticky;
+  position: sticky;
+  top: 40px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  height: 0;
+}
+
+.map-container {
+  /* position: fixed;
+  top: 50px;
+  left: 500px; */
+  z-index: 0;
+  position: relative;
+}
+.map-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.side-container {
+  position: relative;
+  width: 500px;
+  display: flex;
+  height: 600px;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  z-index: 1;
+}
+.side-box {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  border: 2px solid black;
+  margin: 40px 40px 0 0;
+}
+.text-box {
+  color: black;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  overflow: hidden;
+}
+.text {
+  position: absolute;
+}
+.book-title {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+.description {
+  top: 400px;
+  text-align: left;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+.side-extend {
+  position: absolute;
+  left: 0;
+  width: 1278px;
+  height: 600px;
+  /* background: blue;
+  opacity: 0.4; */
+}

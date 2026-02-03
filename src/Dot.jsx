@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 
-const Dot = ({ pathArr, ref, resize, text }) => {
-   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+const Dot = ({ pathArr, el, resize, text }) => {
+   const { scrollYProgress } = useScroll({ target: el, offset: ['start start', 'end start'] });
    const { pathOffsetPercent, opacity } = useTransform(scrollYProgress, [0, 0.01, 0.99, 1], {
       pathOffsetPercent: ['0%', '1%', '99%', '100%'],
       opacity: [0, 1, 1, 0],

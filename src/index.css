@@ -1,9 +1,7 @@
 /* body::-webkit-scrollbar {
   display: none;
 }
-html {
-  scrollbar-width: none;
-}
+
 body.noScrollbarBlinkWebKit::-webkit-scrollbar {
     display: none;
 }
@@ -11,6 +9,11 @@ body.noScrollbarBlinkWebKit::-webkit-scrollbar {
 html.noScrollbarFirefox {
     scrollbar-width: none;
 } */
+
+html {
+  /* scrollbar-width: none; */
+  scroll-behavior: smooth;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -6,18 +6,12 @@ import MotionPath from './MotionPath'
 import SimpleScroll from './SimpleScroll'
 import ScrollPath from './ScrollPath'
 import MapContainer from './MapContainer'
+import Header from './Header'
 
 const App = () => {
-
   return (
     <div className='container'>
-      {/* <Rotate />
-      <Spring />
-      <Drag />
-      <MotionPath /> */}
-      {/* <SimpleScroll /> */}
-      {/* <ScrollPath />
-      <MotionPath /> */}
+      <Header />
       <MapContainer />
     </div>
   )
