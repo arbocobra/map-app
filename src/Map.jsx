@@ -1,8 +1,10 @@
 import { path1Array, path2Array, path3Array, path4Array, path5Array, path6Array, path7Array, path8Array, path9Array, path10Array, path11Array, path12Array, path13Array, path14Array, path15Array, path16Array } from './paths/shape1';
+import { path1Start, path2Start, path3Start, path4Start } from './paths/pathStart';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useState, useEffect } from 'react';
 import Path from './Path';
-import Dot from './Dot';
+// import Dot from './Dot';
+import Dot from './DotAlt';
 
 const Map = (props) => {
    const { refA, refB, refB2, refC, refD, refE, refF, refG, refH, refI, refJ, refK, refL, refM, refN, refO, refP, ref1, ref2, ref3, ref4, ref5 } = props
@@ -43,19 +45,19 @@ const Map = (props) => {
    const scaleB = useTransform(scrollB, [0, 0.65], [2, 3.5]);
 
    const translateXC = useTransform(scrollC, [0, 0.65], [0, -500]);
-   const translateXCOffset = useTransform(scrollC, [0, 0.65], [0, -500 * resize]);
+   // const translateXCOffset = useTransform(scrollC, [0, 0.65], [0, -500 * resize]);
 
    const scaleD = useTransform(scrollD, [0, 0.15, 0.35], [3.5, 2, 3.5]);
    const translateXD = useTransform(scrollD, [0, 0.35], [-500, -2050]);
    const translateYD = useTransform(scrollD, [0, .35], [0, 1400]);
-   const translateXDOffset = useTransform(scrollD, [0, .35], [-500 * resize, -2050 * resize]);
-   const translateYDOffset = useTransform(scrollD, [0, .35], [0, 1400 * resize]);
+   // const translateXDOffset = useTransform(scrollD, [0, .35], [-500 * resize, -2050 * resize]);
+   // const translateYDOffset = useTransform(scrollD, [0, .35], [0, 1400 * resize]);
 
    const scaleE = useTransform(scrollE, [0, 1], [3.5, 1]);
    const translateXE = useTransform(scrollE, [0, 1], [-2050, 0]);
    const translateYE = useTransform(scrollE, [0, 1], [1400, 0]);
-   const translateXEOffset = useTransform(scrollE, [0, 1], [-2050 * resize, 0]);
-   const translateYEOffset = useTransform(scrollE, [0, 1], [1400 * resize, 0]);
+   // const translateXEOffset = useTransform(scrollE, [0, 1], [-2050 * resize, 0]);
+   // const translateYEOffset = useTransform(scrollE, [0, 1], [1400 * resize, 0]);
 
    const pathColour = {
       a: '#ff0032', //all
@@ -76,22 +78,25 @@ const Map = (props) => {
       translateY: scrollStage < 3 ? 0 : scrollStage == 3 ? translateYD : translateYE,
       scale: scrollStage == 0 ? scaleA : scrollStage == 1 ? scaleB : scrollStage == 2 ? scaleB : scrollStage == 3 ? scaleD : scaleE
    };
-   const dotTransform = {
-      translateX: scrollStage < 2 ? 0 : scrollStage == 2 ? translateXCOffset : scrollStage == 3 ? translateXDOffset : translateXEOffset,
-      translateY: scrollStage < 3 ? 0 : scrollStage == 3 ? translateYDOffset : translateYEOffset,
-      scale: scrollStage == 0 ? scaleA : scrollStage == 1 ? scaleB : scrollStage == 2 ? scaleB : scrollStage == 3 ? scaleD : scaleE
-   };
-   const dotContainerStyle = {
-      ...dotTransform,
-      width: width * resize,
-      height: height * resize,
-      position: 'absolute',
-      top: 0,
-      zIndex: 3,
-   };
-   const pathContainerStyle = {
-      ...pathTransform,
-   };
+   // const dotTransform = {
+   //    translateX: scrollStage < 2 ? 0 : scrollStage == 2 ? translateXCOffset : scrollStage == 3 ? translateXDOffset : translateXEOffset,
+   //    translateY: scrollStage < 3 ? 0 : scrollStage == 3 ? translateYDOffset : translateYEOffset,
+   //    scale: scrollStage == 0 ? scaleA : scrollStage == 1 ? scaleB : scrollStage == 2 ? scaleB : scrollStage == 3 ? scaleD : scaleE
+   // };
+   // const dotContainerStyle = {
+      // ...dotTransform,
+      // width: width * resize,
+      // height: height * resize,
+      // width,
+      // height,
+      // position: 'absolute',
+      // top: 0,
+      // zIndex: 3,
+   // };
+   // const pathContainerStyle = {
+      // zIndex: 1,
+   //    ...pathTransform,
+   // };
 
    useEffect(() => {
       if (scrollStage === 0) console.log('stage 0');
@@ -109,9 +114,9 @@ const Map = (props) => {
                width={width * resize}
                height={height * resize}
                viewBox='0 0 1945 1500'
-               style={{ zIndex: 2 }}
+               // style={{ zIndex: 2 }}
             >
-               <motion.g style={pathContainerStyle}>
+               <motion.g style={pathTransform}>
                   <mask id='frame'>
                      <motion.rect x={110} y={110} width={1725} height={1280} fill='white' />
                   </mask>
@@ -133,8 +138,27 @@ const Map = (props) => {
                   <Path pathArr={path15Array} el={refO} colour={pathColour.h} />
                   <Path pathArr={path16Array} el={refP} colour={pathColour.g} />
                </motion.g>
+               <motion.g style={pathTransform}>
+                  <Dot pathArr={path1Array} el={refA} />
+                  <Dot pathArr={path2Array} el={refB} />
+                  <Dot pathArr={path3Array} el={refC} />
+                  <Dot pathArr={path4Array} el={refD} />
+                  <Dot pathArr={path5Array} el={refE} />
+                  <Dot pathArr={path6Array} el={refF} />
+                  <Dot pathArr={path7Array} el={refG} />
+                  <Dot pathArr={path8Array} el={refH} />
+                  <Dot pathArr={path9Array} el={refI} />
+                  <Dot pathArr={path10Array} el={refJ} />
+                  <Dot pathArr={path11Array} el={refK} />
+                  <Dot pathArr={path12Array} el={refL} />
+                  <Dot pathArr={path13Array} el={refM} />
+                  <Dot pathArr={path14Array} el={refN} />
+                  <Dot pathArr={path15Array} el={refO} />
+                  <Dot pathArr={path16Array} el={refP} />
+                  <motion.rect width='1945' height='1500' fill='none' />
+               </motion.g>
             </motion.svg>
-            <motion.div style={dotContainerStyle}>
+            {/* <motion.div style={dotContainerStyle}>
                <Dot pathArr={path1Array} el={refA} resize={resize} text={'all'} />
                <Dot pathArr={path2Array} el={refB} resize={resize} text={'all'} />
                <Dot pathArr={path3Array} el={refC} resize={resize} text={'p,e'} />
@@ -151,7 +175,7 @@ const Map = (props) => {
                <Dot pathArr={path14Array} el={refN} resize={resize} text={'r'} />
                <Dot pathArr={path15Array} el={refO} resize={resize} text={'r'} />
                <Dot pathArr={path16Array} el={refP} resize={resize} text={'all'} />
-            </motion.div>
+            </motion.div> */}
          </div>
       </div>
    );
