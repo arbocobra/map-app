@@ -21,6 +21,7 @@ const MapContainer = () => {
    const targetRefN = useRef();
    const targetRefO = useRef();
    const targetRefP = useRef();
+   const targetRefQ = useRef();
    const lenseTargetRef1 = useRef();
    const lenseTargetRef2 = useRef();
    const lenseTargetRef3 = useRef();
@@ -75,6 +76,7 @@ const MapContainer = () => {
                refN={targetRefN}
                refO={targetRefO}
                refP={targetRefP}
+               refQ={targetRefQ}
 
                ref1={lenseTargetRef1}
                ref2={lenseTargetRef2}
@@ -103,17 +105,18 @@ const MapContainer = () => {
             <div ref={targetRefJ} style={ rowStyle(7) }></div>
          </div>
          
-         <div ref={lenseTargetRef4} style={ containerRow(30) }>
+         <div ref={lenseTargetRef4} style={ containerRow(35) }>
             <div ref={targetRefK} style={ rowStyle(10) }></div>
             <div ref={targetRefL} style={ rowStyle(2) }></div>
             <div ref={targetRefM} style={ rowStyle(6) }></div>
             <div ref={targetRefN} style={ rowStyle(3) }></div>
             <div ref={targetRefO} style={ rowStyle(3) }></div>
             <div ref={targetRefP} style={ rowStyle(6) }></div>
+            <div ref={targetRefQ} style={ rowStyle(6) }></div>
          </div>
 
          <div ref={lenseTargetRef5} style={ rowStyle(5) }></div>
-         <div style={ extraRowStyle(10) }></div>
+         <div style={ extraRowStyle(5) }></div>
       </div>
    )
 }

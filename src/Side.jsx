@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { textA, textB, textB2, textC, textD, textE } from './paths/text';
+import { textA, textB, textB2, textC, textD, textE, textF, textG, textH, textI, textJ, textK, textL, textM, textN, textO, textP } from './paths/text';
 import { path1Start } from './paths/pathStart';
 import { useState, useEffect } from 'react';
 
@@ -23,6 +23,20 @@ const Side = (props) => {
             <TextDisplay val={textC} el={refC} />
             <TextDisplay val={textD} el={refD} />
             <TextDisplay val={textE} el={refE} />
+            <TextDisplay val={textF} el={refF} />
+            <TextDisplay val={textG} el={refG} />
+            <TextDisplay val={textH} el={refH} />
+            <TextDisplay val={textI} el={refI} />
+            <TextDisplay val={textJ} el={refJ} />
+            <TextDisplay val={textK} el={refK} />
+            <TextDisplay val={textL} el={refL} />
+
+            <TextDisplay val={textM} el={refM} />
+            <TextDisplay val={textN} el={refN} />
+            <TextDisplay val={textO} el={refO} />
+            <TextDisplay val={textP} el={refP} />
+
+
             {/* <TextDisplay text={'Two'} el={refB} />
             <TextDisplay text={'Three'} el={refC} />
             <TextDisplay text={'Four'} el={refD} />
@@ -66,8 +80,9 @@ const TextDisplay = ({val, el}) => {
    const scroll = useScroll({ target: el, offset: ['start start', 'end start'] }).scrollYProgress;
    const opacity = useTransform(scroll, [0, .2, .8, 1], [0, 1, 1, 0])
    const translateY = useTransform(scroll, [0, 0.3, 0.7, 1], [0, -400, -400, -800])
-   const description = val.filter((_,i) => i > 0)
-   
+   // const description = val.filter((_,i) => i > 0)
+   const description = Array.isArray(val) ? val.filter((_,i) => i > 0) : val.description;
+
    const nameStyle = {
       fontSize: 14,
       color: '#333333'
@@ -75,7 +90,7 @@ const TextDisplay = ({val, el}) => {
 
    return (
       <motion.div className='text description' style={{translateY}}>
-         <motion.p style={{...nameStyle, opacity}}>{val[0]}</motion.p>
+         <motion.p style={{...nameStyle, opacity}}>{Array.isArray(val) ? val[0] : val.characters}</motion.p>
          { description.map((el,i) => (<motion.p key={`text-${i}`} style={{opacity}}>{el}</motion.p>))}
       </motion.div>
    )
