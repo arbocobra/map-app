@@ -19,9 +19,9 @@ const Path = ({ id, pathArr, el, colour }) => {
       if (!display) setDisplay(true)
    })
 
-   useEffect(() => {
-      if (display) console.log(id)
-   }, [display])
+   // useEffect(() => {
+   //    if (display) console.log(id)
+   // }, [display])
 
    return (
       <motion.path 

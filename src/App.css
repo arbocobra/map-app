@@ -1,4 +1,13 @@
+@import 'tailwindcss';
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap'); */
+
 * {position: relative;}
+
+@theme {
+  --font-roboto: Roboto, sans-serif;
+  --font-playfair: Playfair, serif;
+}
+
 #root {
   width: 1400px;
   margin: 0 auto;
@@ -22,49 +31,20 @@
   height: calc(100vh - 60px);
   padding: 30px;
   box-sizing: border-box;
+  justify-content: center;
 }
 .header {
-  border: black 2px solid;
+  /* border: black 2px solid; */
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   font-size: 40px;
   flex:1;
+  gap: 30px;
   color: black;
+  flex: 0 1 80%;
 }
-.box-container {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.box-container button {
-  background-color: #8df0cc; 
-  color: #0f1115; 
-  border-radius: 5px; 
-  padding: 10px;
-  margin: 10px;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: #ff0088;
-  border-radius: 5px;
-}
-
-/* .box-progression {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background-color: #ff0088;
-} */
-
 .map-container-outer {
   display: flex;
   flex-flow: column nowrap;
@@ -74,6 +54,18 @@
   align-items: center;
   gap: 10px;
 }
+.target-container {
+   display: flex;
+   flex-flow: column nowrap;
+   width: 100%;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 10px;
+   padding: 0 10px;
+}
+/* .target-container > div {
+  width: 100%;
+} */
 .map-container-inner {
   position:-webkit-sticky;
   position: sticky;
@@ -111,7 +103,7 @@
   padding: 20px;
   flex: 1;
   display: flex;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin: 40px 40px 0 0;
 }
 .text-box {
@@ -138,6 +130,7 @@
   display: flex;
   justify-content: center;
   flex-flow: column;
+  gap: 10px;
 }
 .side-extend {
   position: absolute;
