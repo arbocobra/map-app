@@ -4,6 +4,7 @@ import Path from './Path';
 import Dot from './Dot';
 import PauseDot from './PauseDot';
 import { pathReference } from './paths/pathRef';
+import mapImage from './assets/wot-map.jpg'
 
 const Map = ({ targetArray, ref1, ref2, ref3, ref4, ref5 }) => {
 
@@ -79,7 +80,7 @@ const Map = ({ targetArray, ref1, ref2, ref3, ref4, ref5 }) => {
                   viewBox='0 0 1945 1500'
                >
                   <motion.g style={pathTransform}>
-                     <image width='1945' height='1500' href='/src/assets/WOT-RandlandMap-BW.jpg' />
+                     <image width='1945' height='1500' href={mapImage} />
                      { refArray.filter((_,i) => i < 16).map((r,i) => (<Path key={`path-${i}`} id={i} pathArr={pathReference[i].path} el={r} colour={pathReference[i].color} />)) }
                   </motion.g>
                   <motion.g style={pathTransform}>
